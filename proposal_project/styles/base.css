@@ -1,0 +1,11 @@
+:root {
+  --primary-color: #FA1313;
+  --secondary-color: #69B87F;
+  --accent1-color:#4A5B4F;
+  --accent2-color: #4D3F3F;
+  --accent3-color: #A26A6A;
+  --accent4-color: #4FF77F;
+
+  --heading-font: 'Roboto', sans-serif;
+  --body-font: 'Arvo', sans-serif;
+}
