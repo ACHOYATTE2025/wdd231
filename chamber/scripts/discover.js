@@ -68,11 +68,21 @@ function afficherCartes() {
     card.className = 'card';
 
     card.innerHTML = `
-     
-      <figure><div><img src="${place.photo_url}" alt="${place.name}" loading="lazy"></div></figure>
-      <div><h2>${place.name}</h2></div>
-      <button>Learn more</button>
-    `;
+  <figure>
+    <div>
+      <img 
+        src="${place.photo_url}" 
+        alt="${place.name}" 
+        loading="lazy" 
+        width="300" 
+        height="200" 
+        style="object-fit: cover; border-radius: 10px;"
+      >
+    </div>
+  </figure>
+  <div><h2>${place.name}</h2></div>
+  <button>Learn more</button>
+`;
 
     // Ouverture du modal
     card.querySelector('button').addEventListener('click', () => {
