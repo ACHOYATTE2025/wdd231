@@ -1,0 +1,149 @@
+:root {
+  --primary-color: #FF9E0D;
+  --secondary-color: #690000;
+  --accent1-color: #AF010A;
+  --accent2-color: #EDDDB0;
+  --accent3-color: #DEC58E;
+  --accent4-color: #46433B;
+
+  --heading-font: 'Roboto', sans-serif;
+  --body-font: 'Arvo', sans-serif;
+}
+
+*{
+  box-sizing: border-box;
+}
+
+main{
+  font-family: var(--body-font);
+}
+
+
+
+
+
+
+/* ========== Conteneur des cartes ========== */
+.contained {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+/* ========== Carte ========== */
+
+#allplaces div {
+  overflow: hidden;
+}
+
+ #allplaces .card {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px var(--accent4-color);
+  width: 90%;
+  min-width: 320px;
+  text-align: center;
+  
+  transition: transform 0.2s;
+
+}
+
+#allplaces .card:hover {
+  transform: translateY(-5px);
+}
+
+#allplaces   .card h2 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+#allplaces  .card figure {
+  margin: 0;
+}
+
+#allplaces .card img {
+  width: 100%;
+  border-top-left-radius: 10px;   
+  border-top-right-radius: 10px; 
+}
+
+#allplaces .card button {
+ background-color: var(--primary-color);
+  color: var(--accent4-color);
+  border: none;
+  width: 7rem;
+  height: 2.5rem;
+  font-size: small;
+  font-weight: bolder;
+  padding: 10px;
+  border-radius: 28px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+
+  display: block;   /* transforme le bouton en bloc */
+  margin: 10px auto; /* centre horizontalement */
+}
+
+#allplaces .card button:hover {
+  background-color: var(--accent2-color);
+}
+
+/* ========== Modal ========== */
+.modal {
+  display: none; /* caché par défaut */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 500px;
+  width: 90%;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.modal-content img {
+  width: 100%;
+  border-radius: 10px;
+  margin: 15px 0;
+}
+
+.modal-content h2 {
+  margin-bottom: 10px;
+}
+
+.modal-content p {
+  font-size: 14px;
+}
+
+/* ========== Bouton de fermeture ========== */
+.close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 28px;
+  font-weight: bold;
+  color: #333;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.close:hover {
+  color: #ff0000;
+}
+
