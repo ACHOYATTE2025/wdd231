@@ -1,3 +1,22 @@
+@font-face {
+  font-family: 'Farro';
+  src: url('../fonts/Roboto/Roboto-VariableFont_wdth\,wght.ttf')  format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+/* idem pour 500 et 700 */
+
+/* Roboto */
+@font-face {
+  font-family: 'Roboto';
+  src: url('../fonts/Farro/Farro-Regular.ttf')  format('truetype');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+
 :root {
   --primary-color: #FF9E0D;
   --secondary-color: #690000;
