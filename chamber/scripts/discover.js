@@ -160,47 +160,52 @@ document.addEventListener("DOMContentLoaded", () => {
 document.addEventListener('DOMContentLoaded', afficherCartes);
 
 
-
-// ✅ Gestion du message de visite dans un modal
-
+// ✅ Gestion du message de bienvenue dans la div #bienvenue
 document.addEventListener("DOMContentLoaded", () => {
+  const bienvenue = document.getElementById("bienvenue");
   const lastVisit = localStorage.getItem("lastVisit");
   const now = Date.now();
-  const modal = document.getElementById("modal");
-  const title = document.getElementById("modal-title");
-  const text = document.getElementById("modal-text");
-  const img = document.getElementById("modal-image");
 
+  let title = "";
   let message = "";
 
   if (!lastVisit) {
     // Première visite
-    message = "Welcome! Let us know if you have any questions.";
-    title.textContent = "👋 Welcome to Alépé Chamber of Commerce!";
+    title = "👋 Welcome to Alépé Chamber of Commerce!";
+    message = "This is your first visit — feel free to explore our cultural and business opportunities.";
   } else {
     // Calcul du nombre de jours depuis la dernière visite
     const difference = now - Number(lastVisit);
     const daysBetween = Math.floor(difference / (1000 * 60 * 60 * 24));
 
     if (daysBetween < 1) {
-      message = "Back so soon! Awesome!";
-      title.textContent = "😎 Welcome back!";
+      title = "😎 Welcome back!";
+      message = "You’re back so soon — great to see your enthusiasm!";
     } else if (daysBetween === 1) {
-      message = "You last visited 1 day ago.";
-      title.textContent = "👋 Good to see you again!";
+      title = "👋 Good to see you again!";
+      message = "You last visited 1 day ago. Check out what’s new in Alépé!";
     } else {
-      message = `You last visited ${daysBetween} days ago.`;
-      title.textContent = "👋 Welcome back!";
+      title = "👋 Welcome back!";
+      message = `It’s been ${daysBetween} days since your last visit — we’ve missed you!`;
     }
   }
 
-  // Met à jour le texte et affiche le modal
-  text.textContent = message;
-  img.src = "images/chamberlogo.png";
-  img.alt = "Chamber logo";
+  // Injecte le message
+  bienvenue.innerHTML = `<h1>${title}</h1><p>${message}</p>`;
 
-  modal.style.display = "flex"; // ouverture automatique
+  // Affiche le message avec effet d'apparition
+  bienvenue.classList.add("show");
 
-  // Enregistre la date de visite actuelle
+  // Attend 3 secondes, puis fait disparaître lentement le message
+  setTimeout(() => {
+    bienvenue.classList.add("fade-out");
+
+    // Supprime complètement le message du DOM après l’animation
+    setTimeout(() => {
+      bienvenue.style.display = "none";
+    }, 3000);
+  }, 3000);
+
+  // Met à jour la date de dernière visite
   localStorage.setItem("lastVisit", now);
 });
