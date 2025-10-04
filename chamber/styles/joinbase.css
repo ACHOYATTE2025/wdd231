@@ -13,18 +13,26 @@
 /* ===================== */
 /* Style global h1 / tilo */
 /* ===================== */
-#tilo {
-  text-align: center;      
-  margin: 2rem 1rem;      
+/* Conteneur principal */
+.tilo {
+  display: grid;          /* correction ici */
+  place-items: center;    /* centre horizontalement et verticalement */
+  text-align: center;
   padding: 1rem;
+  width: 100%;
+  max-width: 100%;        /* empêche de dépasser la fenêtre */
+  overflow-x: hidden;
+  margin: 25px auto;     /* sécurité pour éviter le scroll horizontal */
+  font-family: var(--body-font);
 }
 
-#tilo h1 {
-  font-size: 1.8rem;       
-  color: var(--accent4-color);
+.tilo h1 {
+  font-size: clamp(1.5rem, 6vw, 2.5rem);
+  color: var(--accent1-color);
   line-height: 1.2;
-  margin: 0;
   text-decoration: underline;
+  word-break: break-word;
+  margin: 0;
 }
 
 /* ===================== */
