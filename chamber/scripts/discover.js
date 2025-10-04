@@ -159,7 +159,6 @@ document.addEventListener("DOMContentLoaded", () => {
 // ✅ Attendre le chargement du DOM avant exécution
 document.addEventListener('DOMContentLoaded', afficherCartes);
 
-
 // ✅ Gestion du message de bienvenue dans la div #bienvenue
 document.addEventListener("DOMContentLoaded", () => {
   const bienvenue = document.getElementById("bienvenue");
@@ -190,22 +189,24 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // Injecte le message
+  // Injecte le message dans la div
   bienvenue.innerHTML = `<h1>${title}</h1><p>${message}</p>`;
 
-  // Affiche le message avec effet d'apparition
-  bienvenue.classList.add("show");
+  // ✅ Effet d'apparition/disparition sans bloquer le rendu principal
+  window.addEventListener("load", () => {
+    bienvenue.classList.add("show");
 
-  // Attend 3 secondes, puis fait disparaître lentement le message
-  setTimeout(() => {
-    bienvenue.classList.add("fade-out");
-
-    // Supprime complètement le message du DOM après l’animation
+    // Laisse visible 2s puis commence la disparition
     setTimeout(() => {
-      bienvenue.style.display = "none";
-    }, 3000);
-  }, 3000);
+      bienvenue.classList.add("fade-out");
+    }, 2000);
 
-  // Met à jour la date de dernière visite
+    // Supprime complètement du DOM après 3s
+    setTimeout(() => {
+      bienvenue.remove();
+    }, 5000);
+  });
+
+  // ✅ Met à jour la date de dernière visite
   localStorage.setItem("lastVisit", now);
 });

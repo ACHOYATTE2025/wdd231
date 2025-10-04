@@ -146,28 +146,32 @@ main{
 .close:hover {
   color: #ff0000;
 }
-
-/* --- Section de bienvenue --- */
-.welcome {
-  background: linear-gradient(135deg, var(--secondary-color), var(--accent1-color), var(--primary-color));
-  color: #fff;
-  padding: 2rem;
-  margin: 1.5rem auto;
-  border-radius: 15px;
+/* Message de bienvenue */
+#bienvenue {
+  position: fixed;
+  top: 14%;
+  left: 50%;
+  transform: translateX(-50%);
   text-align: center;
-  max-width: 800px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  background: linear-gradient(90deg, var(--primary-color), var(--accent1-color), var(--secondary-color));
+  color: white;
+  padding: 0rem 2rem;
+  border-radius: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  z-index: 10000;
   opacity: 0;
-  transition: opacity 1s ease;
+  transition: opacity 1s ease-in-out;
+  pointer-events: none; /* n’empêche pas l’interaction avec la page */
 }
 
-.welcome.show {
+/* Apparition */
+#bienvenue.show {
   opacity: 1;
 }
 
-.welcome.fade-out {
+/* Disparition progressive */
+#bienvenue.fade-out {
   opacity: 0;
-  transition: opacity 3s ease; /* 👈 disparition douce */
 }
 
 .welcome h1 {
